@@ -3,7 +3,6 @@ import graphlearning as gl
 import matplotlib.pyplot as plt
 import scipy.spatial as spatial
 import scipy.sparse as sparse
-import mayavi.mlab as mlab
 from joblib import Parallel, delayed
 
 #u = 2 - (cos(2pix) + cos(2piy))
@@ -95,7 +94,4 @@ for n in [1,2,4,8]:
         alpha = 10*h*h
         Parallel(n_jobs=num_trials)(delayed(trial)(4,n,h,alpha) for i in range(num_trials))
 
-
-#mlab.figure(bgcolor=(1,1,1),size=(800,800))
-#mlab.triangular_mesh(X[:,0],X[:,1],u,Tri)
 
