@@ -29,8 +29,8 @@ for alpha in [0.95]:
         print("Alpha:", alpha)
         f_rand, axarr_rand = plt.subplots(numh,numw,gridspec_kw={'wspace':0.1,'hspace':0.1})
         f_pagerank_median, axarr_pagerank = plt.subplots(numh,numw,gridspec_kw={'wspace':0.1,'hspace':0.1})
-        #f_rand.suptitle('Random Images')
-        #f_pagerank_median.suptitle('Highest Ranked Images')
+        f_rand.suptitle('Random Images')
+        f_pagerank_median.suptitle('Highest Ranked Images')
 
         for label in range(10):
             print("Digit %d..." % label)
@@ -70,7 +70,5 @@ for alpha in [0.95]:
                 axarr_rand[label, j].imshow(img, cmap='gray')
                 axarr_rand[label, j].axis('off')
                 axarr_rand[label, j].set_aspect('equal')
-        f_pagerank_median.savefig(str(alpha)+dataset + 'asymmetric'+'_pagerank_median.png')
-        f_rand.savefig("random_"+dataset+"_images.png")
         plt.show()
 
