@@ -33,7 +33,6 @@ for exp in [2,3,4]:
     j += 1
 
 
-plt.ion()
 plt.figure()
 plt.rcParams.update({
     "text.usetex": True,
