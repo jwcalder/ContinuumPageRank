@@ -10,7 +10,6 @@ metric = 'raw'
 I,J,D = gl.load_kNN_data(dataset,metric=metric)
 n = I.shape[0]
 
-plt.ion()
 plt.figure()
 plt.rcParams.update({
     "text.usetex": True,
@@ -52,7 +51,5 @@ plt.ylabel(r'$L^\infty$ distance to teleportation distribution')
 plt.legend(loc='upper right')
 plt.tight_layout()
 plt.grid(True)
-plt.savefig(dataset+'_err_vs_alpha.eps')
-plt.savefig(dataset+'_err_vs_alpha.pdf')
-plt.savefig(dataset+'_err_vs_alpha.png')
+plt.show()
 
