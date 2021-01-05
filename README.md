@@ -4,6 +4,13 @@ This GitHub repository contains the code to reproduce experiments from the paper
 
 Yuan, Calder, Osting. [A Continuum Limit for the PageRank Algorithm](https://arxiv.org/abs/2001.08973), arXiv Preprint, 2020.
 
+Download the repository with
+
+```
+git clone https://github.com/jwcalder/ContinuumPageRank
+cd ContinuumPageRank
+```
+
 Install the requried Python packages
 
 ```
