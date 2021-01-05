@@ -52,8 +52,5 @@ plt.ylabel(r'$L^\infty$ error')
 plt.legend(loc='upper right')
 plt.tight_layout()
 plt.grid(True)
-plt.savefig('convergence_test.png')
-plt.savefig('convergence_test.eps')
-plt.savefig('convergence_test.pdf')
 plt.show()
 
