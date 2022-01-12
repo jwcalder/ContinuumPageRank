@@ -68,9 +68,10 @@ def trial(i,n,h,alpha):
     n = int(n)
     X = np.random.rand(n,2)
     W = Phi*torus_eps_graph(X,h)
-    deg = gl.degrees(W)
-    conn = gl.isconnected(W)
-    u = n*h*h*gl.PageRank(W,alpha=1-alpha,v=v(X,h,alpha),tol=1e-10)/deg
+    G = gl.graph(W)
+    deg = G.degree_vector()
+    conn = G.isconnected()
+    u = n*h*h*G.page_rank(alpha=1-alpha,v=v(X,h,alpha),tol=1e-10)/deg
     err = np.max(np.absolute(u-u_true(X)))
 
     print('%d,%d,%f,%f,%f,%d'%(i,n,h,alpha,err,conn),flush=True)

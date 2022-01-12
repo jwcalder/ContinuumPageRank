@@ -7,8 +7,7 @@ dataset = 'mnist'
 metric = 'raw'
 
 #Consturct weight matrix and distance matrix
-I,J,D = gl.load_kNN_data(dataset,metric=metric)
-n = I.shape[0]
+knn_data = gl.weightmatrix.load_knn_data(dataset,metric=metric)
 
 plt.figure()
 plt.rcParams.update({
@@ -21,15 +20,17 @@ styles = ['^b-','or-','dg-','sk-','pm-','xc-','*y-']
 
 i=0
 for k in [5,10,20]:
-    W = gl.weight_matrix(I,J,D,k,symmetrize=False)
-    knn_dist = np.mean(D[:,k-1])
+    W = gl.weightmatrix.knn(None, k, knn_data=knn_data, symmetrize=False)
+    G = gl.graph(W)
+    n = G.num_nodes
+    knn_dist = np.mean(knn_data[1][:,k-1])
 
     err_list = []
     knn_dist_list = []
     alpha_list = []
 
     for alpha in np.arange(0.05,0.55,0.05):
-        u = gl.PageRank(W,alpha=1-alpha,tol=1e-10)
+        u = G.page_rank(alpha=1-alpha,tol=1e-10)
         err = np.linalg.norm(n*u - np.ones(n))/np.sqrt(n)
         err = np.max(np.absolute(n*u - np.ones(n)))
         print('k=%d,alpha=%f, err=%f'%(k,alpha,err))
